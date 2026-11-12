@@ -1,0 +1,66 @@
+<!-- Fragmento de pantalla cargado por index.html -->
+<section id="screen-sale" class="view-screen" hidden>
+        <section class="hero">
+          <small>OPERACIONES · CREDITO</small>
+          <h1>Nota</h1>
+        </section>
+
+        <section class="card">
+          <form id="sale-form">
+            <label for="sale-store-number">Número de tienda</label>
+            <div class="store-identify-row">
+              <input id="sale-store-number" list="store-options" required maxlength="40" placeholder="Escanea o escribe el número de tienda" autocomplete="off">
+              <button type="button" id="sale-scan-qr" class="secondary scan-button"> <span aria-hidden="true">▦</span> Escanear QR</button>
+            </div>
+            <datalist id="store-options"></datalist>
+            <video id="sale-scanner-video" class="store-scanner-video" playsinline muted hidden></video>
+            <div class="scanner-tools"><p id="sale-scanner-status" class="muted" role="status">Puedes escanear el QR o introducir el número manualmente.</p><button type="button" id="sale-stop-scan" class="secondary small-button" hidden>Detener cámara</button></div>
+            <label for="sale-store-name">Nombre de la tienda</label>
+            <input id="sale-store-name" readonly placeholder="Se completará al identificar la tienda">
+            <p id="sale-store-status" class="store-selection-status" role="status" aria-live="polite"></p>
+
+            <div class="line date-line">
+              <span><b>Fecha:</b> <span id="sale-date"></span></span>
+              <span class="muted">Crédito</span>
+            </div>
+
+            <h2>Productos</h2>
+            <div class="product-table-wrap">
+              <table class="product-table">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Piezas</th>
+                    <th>Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody id="sale-product-rows"></tbody>
+              </table>
+            </div>
+
+
+            <div class="total-box">
+              <div>
+                <span>Total de piezas</span>
+                <strong id="sale-total-pieces">0</strong>
+              </div>
+              <div class="grand-total">
+                <span>Total de la venta</span>
+                <strong id="sale-total-amount">$0.00</strong>
+              </div>
+            </div>
+
+            <p id="sale-notice" class="notice" role="status" hidden></p>
+            <button type="submit">Generar venta</button>
+            <button type="button" id="cancel-sale" class="secondary">Cancelar / limpiar nota</button>
+          </form>
+          <div id="sale-print-actions" class="sale-print-actions" hidden>
+
+            <h3>Nota guardada correctamente</h3>
+
+            <button type="button" id="sale-print-thermal">
+            Imprimir en térmica 80 mm
+            </button>
+          </div>
+        </section>
+      </section>

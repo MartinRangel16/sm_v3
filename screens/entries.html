@@ -1,0 +1,13 @@
+<!-- Entrada de mercancía: cantidades recibidas por producto. -->
+<section id="screen-entries" class="view-screen" hidden>
+  <section class="hero"><small>INVENTARIO</small><h1>Entrada de mercancía</h1><p>Registra las piezas entregadas al vendedor. Estos datos se comparan con las notas de venta.</p></section>
+  <section class="card">
+    <form id="entry-form">
+      <label for="entry-date">Fecha de entrada</label><input id="entry-date" type="date" required>
+      <label for="entry-reference">Referencia o comentario (opcional)</label><input id="entry-reference" maxlength="120" placeholder="Ej. Entrega semanal">
+      <h2>Productos recibidos</h2><div class="product-table-wrap"><table class="product-table"><thead><tr><th>Producto</th><th>Piezas recibidas</th></tr></thead><tbody id="entry-product-rows"></tbody></table></div>
+      <p id="entry-notice" class="notice" role="status" hidden></p><button type="submit">Guardar entrada</button><button type="button" id="entry-clear" class="secondary">Limpiar</button>
+    </form>
+  </section>
+  <section class="card"><h2>Historial de entradas</h2><div id="entries-list"></div></section>
+</section>

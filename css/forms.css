@@ -1,0 +1,156 @@
+/* Mejoras específicas para captura de cantidades y formularios. */
+.quantity-input { text-align: center; padding-left: 0; padding-right: 0; }
+
+#entry-product-rows input { width: 88px; max-width: 100%; }
+#commission-product-rows td:not(:first-child) { text-align: center; }
+#entries-list .sale { margin: 12px 0; }
+
+/* Diseño compacto y legible para el cierre de comisiones */
+#screen-commission .commission-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+#screen-commission .commission-table th,
+#screen-commission .commission-table td {
+  padding: 8px 5px;
+  font-size: 12px;
+  vertical-align: middle;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+#screen-commission .commission-table th {
+  text-align: left;
+  white-space: normal;
+}
+
+#screen-commission .commission-table td:nth-child(7) {
+  white-space: nowrap;
+  min-width: 90px;
+}
+
+#screen-commission .commission-table td:nth-child(8) {
+  min-width: 170px;
+}
+
+#screen-commission .commission-table input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 7px 5px;
+  font-size: 12px;
+}
+
+/* Celular y tablet: cada producto se presenta como tarjeta */
+@media (max-width: 700px) {
+  #screen-container {
+    padding: 8px;
+  }
+
+  #screen-commission .card {
+    padding: 12px;
+  }
+
+  #screen-commission .product-table-wrap {
+    overflow: visible;
+  }
+
+  #screen-commission .commission-table,
+  #screen-commission .commission-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  #screen-commission .commission-table thead {
+    display: none;
+  }
+
+  #screen-commission .commission-table tbody tr {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+
+  #screen-commission .commission-table tbody td {
+    display: grid;
+    grid-template-columns: minmax(115px, 40%) minmax(0, 1fr);
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 7px 0;
+    border: 0;
+    text-align: left !important;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  #screen-commission .commission-table tbody td:first-child {
+    display: block;
+    font-weight: 700;
+    font-size: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 5px;
+  }
+
+  #screen-commission .commission-table tbody td:not(:first-child)::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11px;
+    line-height: 1.3;
+    color: #666;
+    font-weight: 600;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  #screen-commission .commission-table td:nth-child(7),
+  #screen-commission .commission-table td:nth-child(8) {
+    min-width: 0;
+    white-space: normal;
+  }
+
+  #screen-commission .commission-table input {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  #screen-commission .commission-table td[data-label="Motivo del faltante"] {
+    grid-template-columns: 1fr;
+  }
+
+  #screen-commission .commission-table td[data-label="Motivo del faltante"] input {
+    min-height: 40px;
+  }
+
+  #screen-commission .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  #screen-commission .stats article {
+    min-width: 0;
+    padding: 10px;
+  }
+
+  #screen-commission .stats strong {
+    overflow-wrap: anywhere;
+  }
+
+  #screen-entries .product-table-wrap {
+    overflow-x: visible;
+  }
+
+  #screen-entries .product-table {
+    width: 100%;
+  }
+}

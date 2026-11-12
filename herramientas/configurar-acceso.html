@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Configurar acceso local · Semilla Dorada</title>
+<style>body{font:16px/1.45 system-ui,sans-serif;max-width:620px;margin:30px auto;padding:0 16px;color:#171717;background:#f5f5f3}section{background:white;border:1px solid #ddd;border-radius:16px;padding:20px}label{display:block;margin:14px 0 5px;font-weight:650}input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #ccc;border-radius:9px;font:inherit}button{margin-top:18px;padding:12px;width:100%;background:#171717;color:white;border:0;border-radius:9px;font:inherit}small{color:#666}pre{white-space:pre-wrap;word-break:break-word;background:#eee;padding:12px;border-radius:8px}</style></head>
+<body><section><h1>Configurar acceso local</h1><p>Esta herramienta se ejecuta en tu dispositivo. Escribe el nombre y la contraseña que asignarás al vendedor; después descarga el archivo <code>users-config.js</code> y reemplaza el del proyecto.</p>
+<label for="username">Nombre de usuario</label><input id="username" maxlength="80" value="vendedor1" autocomplete="off">
+<label for="password">Contraseña nueva</label><input id="password" type="password" minlength="8" maxlength="128" autocomplete="new-password">
+<button id="generate">Generar archivo de credenciales</button><p id="status" role="status"></p><small>Usa una contraseña de al menos 8 caracteres. No compartas el archivo generado públicamente. La validación local es una protección básica, no sustituye autenticación en servidor.</small></section>
+<script>
+const enc=new TextEncoder();
+function hex(b){return Array.from(new Uint8Array(b),x=>x.toString(16).padStart(2,"0")).join("")}
+document.getElementById("generate").addEventListener("click",async()=>{
+ const username=document.getElementById("username").value.trim(),password=document.getElementById("password").value,status=document.getElementById("status");
+ if(!username||password.length<8){status.textContent="Escribe un usuario y una contraseña de al menos 8 caracteres.";return}
+ try{
+  const salt=crypto.getRandomValues(new Uint8Array(16)),iterations=180000;
+  const key=await crypto.subtle.importKey("raw",enc.encode(password),"PBKDF2",false,["deriveBits"]);
+  const bits=await crypto.subtle.deriveBits({name:"PBKDF2",salt,iterations,hash:"SHA-256"},key,256);
+  const config=`// Credencial local generada para Semilla Dorada. Proteccion basica, no autenticacion robusta.\nwindow.SD_USERS = [{ username: ${JSON.stringify(username)}, salt: "${hex(salt)}", hash: "${hex(bits)}", iterations: ${iterations} }];\n`;
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([config],{type:"text/javascript;charset=utf-8"}));a.download="users-config.js";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  status.textContent="Archivo users-config.js generado. Reemplaza el archivo del proyecto y vuelve a publicar.";
+ }catch(e){status.textContent="Este navegador no permite generar el hash. Abre esta herramienta desde Chrome o Edge actualizado."}
+});
+</script></body></html>

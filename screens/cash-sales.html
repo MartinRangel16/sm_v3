@@ -1,0 +1,48 @@
+<!-- Nota de venta en efectivo: mismo formato de crédito, catálogo y precios independientes. -->
+<section id="screen-cash-sale" class="view-screen" hidden>
+  <section class="hero">
+    <small>OPERACIONES · CONTADO</small>
+    <h1>Nota de venta en efectivo</h1>
+  </section>
+  <section class="card">
+    <form id="cash-sale-form">
+      <label for="cash-store-number">Número de tienda</label>
+      <div class="store-identify-row">
+        <input id="cash-store-number" list="cash-store-options" required maxlength="40" placeholder="Escanea o escribe el número de tienda" autocomplete="off">
+        <button type="button" id="cash-sale-scan-qr" class="secondary scan-button"><span aria-hidden="true">▦</span> Escanear QR</button>
+      </div>
+      <datalist id="cash-store-options"></datalist>
+      <video id="cash-sale-scanner-video" class="store-scanner-video" playsinline muted hidden></video>
+      <div class="scanner-tools"><p id="cash-sale-scanner-status" class="muted" role="status">Puedes escanear el QR o introducir el número manualmente.</p><button type="button" id="cash-sale-stop-scan" class="secondary small-button" hidden>Detener cámara</button></div>
+      <label for="cash-store-name">Nombre de la tienda</label>
+      <input id="cash-store-name" readonly placeholder="Se completará al identificar la tienda">
+      <p id="cash-store-status" class="store-selection-status" role="status" aria-live="polite"></p>
+      <div class="line date-line">
+        <span><b>Fecha:</b> <span id="cash-sale-date"></span></span>
+        <span class="muted">Efectivo</span>
+      </div>
+      <h2>Productos</h2>
+      <div class="product-table-wrap">
+        <table class="product-table">
+          <thead><tr><th>Producto</th><th>Piezas</th><th>Subtotal</th></tr></thead>
+          <tbody id="cash-sale-product-rows"></tbody>
+        </table>
+      </div>
+      <div class="total-box">
+        <div><span>Total de piezas</span><strong id="cash-sale-total-pieces">0</strong></div>
+        <div class="grand-total"><span>Total de la venta</span><strong id="cash-sale-total-amount">$0.00</strong></div>
+      </div>
+      <p id="cash-sale-notice" class="notice" role="status" hidden></p>
+      <button type="submit">Generar nota de efectivo</button>
+      <button type="button" id="cash-cancel-sale" class="secondary">Cancelar / limpiar nota</button>
+    </form>
+    <div id="cash-print-actions" class="sale-print-actions" hidden>
+
+            <h3>Nota guardada correctamente</h3>
+
+            <button type="button" id="cash-print-thermal">
+            Imprimir en térmica 80 mm
+            </button>
+          </div>
+  </section>
+</section>

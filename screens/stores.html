@@ -1,0 +1,39 @@
+<!-- Registro de tiendas con número manual, responsables y QR. -->
+<section id="screen-stores" class="view-screen" hidden>
+  <section class="hero">
+    <small>CATÁLOGO DE ESTABLECIMIENTOS</small>
+    <h1>Registro de tiendas</h1>
+    <p>Asigna el número de tienda y genera su QR de identificación.</p>
+  </section>
+
+  <section class="card">
+    <h2 id="store-form-title">Registrar tienda</h2>
+    <form id="store-form">
+      <input type="hidden" id="store-edit-id">
+      <label for="store-number">Número de tienda</label>
+      <input id="store-number" type="text" inputmode="numeric" required maxlength="12" pattern="[0-9A-Za-z-]+" placeholder="Ej. 025" autocomplete="off">
+      <label for="store-name">Nombre de la tienda</label>
+      <input id="store-name" required maxlength="120" placeholder="Ej. Abarrotes La Esperanza">
+      <label for="store-address">Dirección</label>
+      <textarea id="store-address" required maxlength="240" rows="3" placeholder="Calle, número, colonia y ciudad"></textarea>
+      
+      <label for="store-responsible-seller">Vendedor responsable</label>
+      <select id="store-responsible-seller" required></select>
+
+
+      <div class="store-form-actions">
+        <button type="submit" id="store-save-button">Guardar tienda y generar QR</button>
+        <button type="button" id="store-cancel-edit" class="secondary" hidden>Cancelar edición</button>
+      </div>
+    </form>
+    <p id="store-notice" class="notice" role="status" hidden></p>
+  </section>
+
+  <section class="card">
+    <div class="section-heading-row">
+      <div><h2>Tiendas registradas</h2><p class="muted">El QR identifica la tienda; los permisos se verifican dentro de la aplicación.</p></div>
+      <strong id="stores-count">0</strong>
+    </div>
+    <div id="stores-list"></div>
+  </section>
+</section>

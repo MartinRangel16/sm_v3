@@ -1,0 +1,100 @@
+<!-- Fragmento de pantalla cargado por index.html -->
+<section id="screen-home" class="view-screen">
+        <section class="hero">
+          <small>CONTROL LOCAL · SEMILLA DORADA</small>
+          <h1>Resumen del negocio</h1>
+        </section>
+
+        <div class="menu-grid">
+          <button type="button" class="menu-card" data-screen="sale">
+            <span class="menu-icon" data-lucide="receipt-text" aria-hidden="true"></span>
+            <b>Nota de venta a crédito</b>
+            <small>Registrar piezas vendidas por tienda</small>
+          </button>
+
+          <button type="button" class="menu-card" data-screen="cash-sale">
+            <span class="menu-icon" data-lucide="banknote" aria-hidden="true"></span>
+            <b>Nota de venta en efectivo</b>
+            <small>Registrar ventas de contado con el mismo catálogo de precios</small>
+          </button>
+
+          <button type="button" class="menu-card" data-screen="stores">
+            <span class="menu-icon" data-lucide="store" aria-hidden="true"></span>
+            <b>Registro de tiendas</b>
+            <small>Crear, editar, consultar o eliminar tiendas</small>
+          </button>
+
+          <button type="button" class="menu-card" data-screen="prices">
+            <span class="menu-icon" data-lucide="tags" aria-hidden="true"></span>
+            <b>Administrar precios</b>
+            <small>Una sola lista para las notas de crédito y efectivo</small>
+          </button>
+
+          <button type="button" class="menu-card" data-screen="history">
+            <span class="menu-icon" data-lucide="clipboard-list" aria-hidden="true"></span>
+            <b>Historial de ventas</b>
+            <small>Consultar, revisar y modificar notas guardadas</small>
+          </button>
+
+          <button type="button" class="menu-card" data-screen="entries">
+            <span class="menu-icon" data-lucide="package" aria-hidden="true"></span>
+            <b>Entrada de mercancía</b>
+            <small>Registrar la mercancía recibida y consultar sus entradas</small>
+          </button>
+
+          <button type="button" class="menu-card" data-screen="commission">
+            <span class="menu-icon" data-lucide="calculator" aria-hidden="true"></span>
+            <b>Comisiones y mercancía</b>
+            <small>Calcular comisión estimada y comparar piezas recibidas y vendidas</small>
+          </button>
+        </div>
+
+        <section class="card">
+          <h2>Resumen de pruebas</h2>
+          <div class="stats">
+            <article>
+              <small>Notas activas</small>
+              <strong id="home-sales-count">0</strong>
+            </article>
+            <article>
+              <small>Total vendido</small>
+              <strong id="home-sales-total">$0.00</strong>
+            </article>
+            <article>
+              <small>Tiendas activas</small>
+              <strong id="home-stores-count">0</strong>
+            </article>
+            <article>
+              <small>Entradas activas</small>
+              <strong id="home-entries-count">0</strong>
+            </article>
+          </div>
+          <button type="button" id="export" class="secondary">Exportar notas a CSV</button>
+        </section>
+
+        <section class="card">
+          <h2>Últimas notas registradas</h2>
+          <p class="muted">Aquí aparecen juntas las notas de crédito y de efectivo.</p>
+          <div id="home-recent-sales" class="home-recent-sales"></div>
+        </section>
+
+        <section class="card">
+          <h2>Respaldo de datos</h2>
+          <p class="muted">Los respaldos se protegen con una contraseña elegida al exportarlos. Guárdala: la necesitarás para restaurarlos en otro dispositivo.</p>
+          <p id="backup-alert" class="backup-alert" role="alert" hidden></p>
+          <div id="backup-status"></div>
+          <div class="backup-actions">
+            <button type="button" id="backup-export">Exportar respaldo cifrado</button>
+            <button type="button" id="backup-import" class="secondary">Restaurar desde respaldo</button>
+            <input type="file" id="backup-file" accept=".json,application/json" hidden>
+          </div>
+          <p id="backup-notice" class="backup-notice" role="status" hidden></p>
+        </section>
+
+        <section class="card">
+          <h2>Almacenamiento local</h2>
+          <p class="muted">Las tiendas, precios y notas se guardan en este dispositivo. No se sincronizan con otros equipos y el acceso es una barrera local básica, no un sistema de permisos seguro. Protege el equipo y conserva respaldos periódicos.</p>
+        </section>
+
+
+      </section>

@@ -1,0 +1,51 @@
+<!-- Cierre del vendedor: inventario inicial/final, ventas, efectivo, depósitos y comisión. -->
+<section id="screen-commission" class="view-screen" hidden>
+  <section class="hero"><small>CIERRE DEL VENDEDOR</small><h1>Ventas y pago de comisión</h1><p>Captura la existencia inicial y final, registra el efectivo y los depósitos entregados, y genera el cálculo del cierre.</p></section>
+  <section class="card"><form id="commission-form">
+    <label for="commission-date">Fecha de cierre</label><input id="commission-date" type="date" required>
+    <label for="commission-rate">Porcentaje de comisión sobre ventas (%)</label><input id="commission-rate" type="number" min="0" max="100" step="0.01" required>
+    <p class="muted">Configura el porcentaje acordado. La comisión se calcula sobre el importe de las notas de venta registradas.</p>
+    <button type="submit">Guardar porcentaje</button><p id="commission-notice" class="notice" role="status" hidden></p>
+  </form></section>
+  <section class="card"><h2>Existencia inicial y final</h2><p class="muted">Captura las piezas iniciales y finales. Si faltan piezas, será obligatorio registrar el motivo antes de guardar el cierre.</p>
+    <div class="product-table-wrap">
+  <table class="product-table commission-table">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Existencia inicial</th>
+        <th>Ventas (pzas.)</th>
+        <th>Existencia final</th>
+        <th>Diferencia</th>
+        <th>Valor del faltante</th>
+        <th>Observaciones</th>
+      </tr>
+    </thead>
+    <tbody id="commission-product-rows"></tbody>
+  </table>
+</div>
+  </section>
+  <section class="card"><h2>Entrega de dinero</h2>
+    <label for="commission-cash">Efectivo entregado (MXN)</label><input id="commission-cash" type="number" min="0" step="0.01" value="0" inputmode="decimal">
+    <label for="commission-deposits">Depósitos realizados (MXN)</label><input id="commission-deposits" type="number" min="0" step="0.01" value="0" inputmode="decimal">
+    <label for="commission-reference">Referencia o comentario (opcional)</label><input id="commission-reference" maxlength="160" placeholder="Ej. depósito bancario, ficha o aclaración">
+    <button type="button" id="commission-calculate">Calcular cierre</button>
+  </section>
+  <section class="card"><h2>Resultado del cierre</h2><div class="stats">
+    <article><small>Importe de ventas</small><strong id="commission-sales-total">$0.00</strong></article>
+    <article><small>Efectivo + depósitos</small><strong id="commission-delivered-total">$0.00</strong></article>
+    <article><small>Diferencia de dinero</small><strong id="commission-money-difference">$0.00</strong></article>
+    <article><small>Comisión a pagar</small><strong id="commission-total">$0.00</strong></article>
+    <article><small>Piezas vendidas</small><strong id="commission-sold">0</strong></article>
+    <article><small>Diferencia de inventario</small><strong id="commission-inventory-difference">0</strong></article>
+    <article><small>Valor estimado de piezas faltantes</small><strong id="commission-missing-value-total">$0.00</strong></article>
+  </div><p class="muted">Diferencia de dinero = ventas menos efectivo y depósitos, sin mezclar la comisión. El valor de faltantes se estima con los precios actuales configurados y se muestra por separado; no se descuenta automáticamente de la comisión ni del dinero. La diferencia de inventario compara existencia inicial más entradas menos ventas y existencia final. Si hay faltantes, se exige explicar el motivo.</p>
+    <button type="button" id="commission-save-closeout">Guardar cierre y pago calculado</button><p id="closeout-notice" class="notice" role="status" hidden></p>
+    <hr>
+    <h2>Finalizar semana</h2>
+    <p class="muted">Primero revisa la existencia final, el efectivo, los depósitos y guarda el cierre de comisión. Después utiliza este botón para archivar las notas de venta de la semana y comenzar un nuevo periodo.</p>
+    <button type="button" id="close-week" class="danger">Cerrar semana y comenzar otra</button>
+    <p id="close-week-notice" class="notice" role="status" hidden></p>
+  </section>
+  <section class="card"><h2>Cierres guardados</h2><div id="commission-closings-list"></div></section>
+</section>

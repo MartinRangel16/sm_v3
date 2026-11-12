@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171d20">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'none'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="description" content="Semilla Dorada: aplicación local preparada para trabajar sin conexión">
+  <title>Semilla Dorada · Control local</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./images/icon-maskable-512.png" type="image/png">
+  <link rel="apple-touch-icon" href="./images/icon-maskable-512.png">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/forms.css">
+  <link rel="stylesheet" href="./css/logistics-control.css">
+</head>
+<body>
+  <section id="splash" class="screen splash" aria-label="Presentación Semilla Dorada">
+    <img src="./images/icon-maskable-512.png" alt="Logo oficial de Semilla Dorada" class="splash-logo">
+    <p class="splash-caption">SEMILLA DORADA · CONTROL LOCAL</p>
+  </section>
+
+  <section id="login-screen" class="screen login-screen" hidden>
+    <div class="login-card">
+      <img src="./images/logo-semilla-dorada.png" alt="Semilla Dorada" class="login-logo">
+      <p class="eyebrow">ACCESO AL VENDEDOR</p>
+      <h1>Bienvenido</h1>
+      <p class="login-subtitle">Ingresa tus datos para continuar.</p>
+      <form id="login-form" autocomplete="on">
+        <label for="username">Nombre de usuario</label>
+        <input id="username" name="username" autocomplete="username" required maxlength="80" placeholder="Ej. vendedor1">
+        <label for="password">Contraseña</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required maxlength="128" placeholder="Escribe tu contraseña">
+        <button type="submit" id="login-button">Ingresar</button>
+        <p id="login-error" class="login-error" role="alert" hidden>El nombre de usuario o la contraseña no son correctos.</p>
+      </form>
+      <p class="login-footnote">Acceso individual · Datos locales protegidos en este dispositivo · Sin sincronización automática.</p>
+    </div>
+  </section>
+
+  <div id="app-shell" hidden>
+    <header>
+      <div class="header-logo"><img src="./images/logo-semilla-dorada.png" alt=""></div>
+      <div class="brand">
+        <b>SEMILLA DORADA</b>
+        <small>CONTROL DE VENTAS · <span id="seller-name">vendedor</span></small>
+      </div>
+    </header>
+
+    <nav id="main-nav" class="nav-menu" aria-label="Navegación principal">
+      <div class="nav-heading">OPERACIONES</div>
+      <button type="button" data-screen="home" class="nav-button active"><span class="nav-icon" data-lucide="layout-dashboard" aria-hidden="true"></span><span class="nav-label">Inicio</span></button>
+      <button type="button" data-screen="sale" class="nav-button"><span class="nav-icon" data-lucide="receipt-text" aria-hidden="true"></span><span class="nav-label">Ventas a crédito</span></button>
+      <button type="button" data-screen="cash-sale" class="nav-button"><span class="nav-icon" data-lucide="banknote" aria-hidden="true"></span><span class="nav-label">Ventas en efectivo</span></button>
+      <button type="button" data-screen="stores" class="nav-button"><span class="nav-icon" data-lucide="store" aria-hidden="true"></span><span class="nav-label">Tiendas</span></button>
+      <button type="button" data-screen="prices" class="nav-button"><span class="nav-icon" data-lucide="tags" aria-hidden="true"></span><span class="nav-label">Lista de precios</span></button>
+      <button type="button" data-screen="history" class="nav-button"><span class="nav-icon" data-lucide="clipboard-list" aria-hidden="true"></span><span class="nav-label">Historial de ventas</span></button>
+      <button type="button" data-screen="sales-archives" class="nav-button"><span class="nav-icon" data-lucide="archive" aria-hidden="true"></span><span class="nav-label">Ventas archivadas</span></button>
+      <button type="button" data-screen="entries" class="nav-button"><span class="nav-icon" data-lucide="package-plus" aria-hidden="true"></span><span class="nav-label">Entrada de mercancía</span></button>
+      <button type="button" data-screen="entry-history" class="nav-button"><span class="nav-icon" data-lucide="history" aria-hidden="true"></span><span class="nav-label">Historial de entradas</span></button>
+      <button type="button" data-screen="commission" class="nav-button"><span class="nav-icon" data-lucide="calculator" aria-hidden="true"></span><span class="nav-label">Comisiones</span></button>
+      <div class="nav-footnote"><span class="connection-dot"></span> SISTEMA LOCAL</div>
+    </nav>
+
+    <main id="screen-container">
+      <p id="screen-loading" class="muted">Cargando aplicación…</p>
+    </main>
+    <button type="button" id="logout" class="logout-button" hidden>Cerrar sesión</button>
+    <footer>Semilla Dorada · Control local</footer>
+  </div>
+
+  <script src="./js/loader.js"></script>
+  <script src="./js/pwa.js"></script>
+
+
+
+</body>
+</html>

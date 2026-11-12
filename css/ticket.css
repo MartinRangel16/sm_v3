@@ -1,0 +1,26 @@
+/* Estilos externos del ticket. Compatible con CSP: style-src 'self'. */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+body { margin: 0 auto; color: #292d28; background: #fff; font-family: Arial, Helvetica, sans-serif; line-height: 1.35; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.ticket { width: 100%; background: #fff; }
+.header { text-align: center; border-bottom: 2px solid #b99b51; padding: 0 0 8px; margin: 0 0 10px; }
+.brand-logo { display: block; object-fit: contain; margin: 0 auto 2px; }
+.brand-name { margin: 0; font-weight: 800; letter-spacing: .5px; line-height: 1.05; }
+.subtitle { margin-top: 3px; color: #777; letter-spacing: 1px; }
+.document-title { margin-top: 9px; font-weight: 700; }
+.folio { margin-top: 3px; font-weight: 700; }
+.section { margin: 9px 0; }
+.section-title { margin: 0 0 5px; padding-bottom: 4px; border-bottom: 1px solid #d5d5d5; font-weight: 700; text-transform: uppercase; }
+.data-row { margin: 3px 0; overflow-wrap: anywhere; }
+table { width: 100%; border-collapse: collapse; table-layout: auto; }
+th { padding: 5px 2px; border-bottom: 1px solid #999; text-align: left; font-weight: 700; }
+td { padding: 5px 2px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+.numeric { text-align: right; white-space: nowrap; }
+.product-cell { overflow-wrap: anywhere; }
+.total-box { margin-top: 11px; padding-top: 8px; border-top: 2px solid #b99b51; text-align: right; }
+.total-label { margin: 2px 0; font-weight: 700; }
+.total { margin-top: 3px; line-height: 1.1; font-weight: 900; }
+.footer { margin-top: 14px; padding-top: 9px; border-top: 1px solid #d5d5d5; color: #555; text-align: center; line-height: 1.4; }
+.footer p { margin: 6px 0; }
+@media screen { body { margin: 14px auto; padding: 10px; box-shadow: 0 0 7px #ccc; } }
+@media print { body { margin: 0 auto; padding: 0; box-shadow: none; } .ticket, .header, .section, .total-box, .footer { break-inside: avoid; } }

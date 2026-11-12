@@ -1,0 +1,18 @@
+<!-- Fragmento de pantalla cargado por index.html -->
+<section id="screen-history" class="view-screen" hidden>
+        <section class="hero">
+          <small>REGISTROS LOCALES</small>
+          <h1>Historial de ventas</h1>
+        </section>
+
+        <section class="card">
+          <div class="line">
+            <h2>Notas guardadas</h2>
+            <button type="button" id="export-history" class="secondary">Exportar CSV</button>
+          </div>
+          <label for="history-filter">Buscar por tienda, código, fecha, vendedor o producto</label>
+          <input type="search" id="history-filter" maxlength="100" autocomplete="off" placeholder="Ej. SD-TDA-012, pistache o nombre de tienda">
+          <p class="muted history-result-count" id="history-result-count" aria-live="polite"></p>
+          <div id="sales-history"></div>
+        </section>
+      </section>

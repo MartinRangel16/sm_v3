@@ -1,0 +1,39 @@
+<!-- Fragmento de pantalla cargado por index.html -->
+<section id="screen-prices" class="view-screen" hidden>
+  <section class="hero">
+    <small>CONFIGURACIÓN</small>
+    <h1>Listas de precios</h1>
+    <p>Administra por separado los precios de las ventas a crédito y las ventas en efectivo.</p>
+  </section>
+
+  <section class="card price-management-card">
+    <div class="price-tabs" role="tablist" aria-label="Tipo de lista de precios">
+      <button type="button" class="price-tab active" id="price-tab-credit" data-price-tab="credit" role="tab" aria-selected="true" aria-controls="credit-prices-panel">Precios de crédito</button>
+      <button type="button" class="price-tab" id="price-tab-cash" data-price-tab="cash" role="tab" aria-selected="false" aria-controls="cash-prices-panel">Precios de efectivo</button>
+    </div>
+
+    <section id="credit-prices-panel" class="price-panel" role="tabpanel" aria-labelledby="price-tab-credit">
+      <form id="credit-prices-form">
+        <div class="price-panel-heading">
+          <h2>Lista de crédito</h2>
+        </div>
+        <div id="credit-prices-list" class="prices-list"></div>
+        <p class="muted">Los cambios se aplican únicamente a las nuevas notas de crédito. Las notas anteriores conservan sus precios originales.</p>
+        <p id="credit-prices-notice" class="notice" role="status" hidden></p>
+        <button type="submit">Guardar precios de crédito</button>
+      </form>
+    </section>
+
+    <section id="cash-prices-panel" class="price-panel" role="tabpanel" aria-labelledby="price-tab-cash" hidden>
+      <form id="cash-prices-form">
+        <div class="price-panel-heading">
+          <h2>Lista de efectivo</h2>
+        </div>
+        <div id="cash-prices-list" class="prices-list"></div>
+        <p class="muted">Los cambios se aplican únicamente a las nuevas notas de efectivo. Las notas anteriores conservan sus precios originales.</p>
+        <p id="cash-prices-notice" class="notice" role="status" hidden></p>
+        <button type="submit">Guardar precios de efectivo</button>
+      </form>
+    </section>
+  </section>
+</section>

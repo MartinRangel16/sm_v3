@@ -1,0 +1,7 @@
+
+/* Navegación compartida y disposición general de las pantallas. */
+#app-shell.home-active #main-nav { display: none; }
+#screen-container { max-width: 680px; margin: auto; padding: 16px; }
+#screen-container > .view-screen { display: block; }
+#screen-container > .view-screen[hidden] { display: none !important; }
+footer { max-width: 680px; margin: 0 auto; padding: 16px; text-align: center; color: #686868; font-size: 12px; }
